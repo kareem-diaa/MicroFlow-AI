@@ -1,0 +1,7 @@
+.dev_master_key
+*.db
+.env
+__pycache__
+.pytest_cache
+evidence/
+models/*.json

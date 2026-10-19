@@ -1,0 +1,32 @@
+# One command: docker compose up --build   -> API :8000, dashboard :8501, Postgres, Redis
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: microflow
+      POSTGRES_USER: microflow
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me-local-only}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U microflow"]
+      interval: 3s
+      retries: 20
+  redis:
+    image: redis:7-alpine
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://microflow:${POSTGRES_PASSWORD:-change-me-local-only}@db:5432/microflow
+      REDIS_URL: redis://redis:6379/0
+      MICROFLOW_MASTER_KEY: ${MICROFLOW_MASTER_KEY:?set MICROFLOW_MASTER_KEY (base64 32 bytes) in .env}
+      MICROFLOW_JWT_SECRET: ${MICROFLOW_JWT_SECRET:?set MICROFLOW_JWT_SECRET in .env}
+    ports: ["8000:8000"]
+    depends_on:
+      db: {condition: service_healthy}
+      redis: {condition: service_started}
+  dashboard:
+    build: .
+    command: ["streamlit", "run", "frontend/app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+    environment:
+      MICROFLOW_API: http://api:8000
+    ports: ["8501:8501"]
+    depends_on: [api]
