@@ -90,6 +90,8 @@ python scripts/run_sandbox_demo.py     # regenerates evidence/ (sandbox operatio
    Streamlit dashboard (frontend/app.py)  ·  sandbox NBFI provider (simulated)
 ```
 
+[![Architecture diagram of kareem-diaa/microflow-ai](https://gitdiagram.com/kareem-diaa/microflow-ai/diagram.png)](https://gitdiagram.com/kareem-diaa/microflow-ai?utm_source=readme&utm_medium=picture)
+
 ## Key results on the demo dataset
 
 | Metric | Value |
