@@ -143,7 +143,7 @@ docs/      technical documentation, security self-assessment
 
 ## Team
 
-Kareem Diaa Helal · Ahmed Mohamed · Mostafa — ElSewedy University of Technology (SUTech), Cairo, Egypt.
+Kareem Diaa Helal · Ahmed Mohamed · Mostafa Abdelhamed — ElSewedy University of Technology (SUTech), Cairo, Egypt.
 
 ## License
 
