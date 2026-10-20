@@ -92,6 +92,8 @@ python scripts/run_sandbox_demo.py     # regenerates evidence/ (sandbox operatio
 
 [![Architecture diagram of kareem-diaa/microflow-ai](https://gitdiagram.com/kareem-diaa/microflow-ai/diagram.png)](https://gitdiagram.com/kareem-diaa/microflow-ai?utm_source=readme&utm_medium=picture)
 
+![image alt](https://github.com/MostafaAI10/OmniData-MCP/blob/750464122b76be8105a0e212e124aa1fd6ff4a50/MCP-Banner.png)
+
 ## Key results on the demo dataset
 
 | Metric | Value |
